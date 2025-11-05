@@ -1,0 +1,62 @@
+:root{
+  --bg:#0f172a; --panel:#111827; --card:#1f2937;
+  --text:#e5e7eb; --ok:#22c55e; --err:#ef4444;
+  --img-max: 520px; /* максимум пиксели за слика */
+}
+
+*{box-sizing:border-box}
+body{ margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial; background:var(--bg); color:var(--text); }
+.container{ max-width:960px; margin:24px auto; padding:16px; }
+
+.topbar{ display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:16px; }
+h1{ margin:0; font-size:24px; }
+.status{ display:flex; align-items:center; gap:10px; font-weight:600; }
+.btn{ padding:8px 12px; border-radius:10px; border:none; color:#fff; background:#059669; cursor:pointer; }
+
+.board{
+  display:grid; gap:12px; background:var(--panel); padding:16px; border-radius:14px;
+  grid-template-columns:repeat(6, minmax(120px,1fr));
+}
+@media (max-width:900px){ .board{ grid-template-columns:repeat(3, minmax(110px,1fr)); } }
+@media (max-width:600px){ .board{ grid-template-columns:repeat(2, minmax(100px,1fr)); } }
+
+/* --- Карта: едноставно „покажи/скриј“, без 3D --- */
+.card{
+  position:relative; width:100%; aspect-ratio:3/4;
+  background:var(--card); border-radius:12px; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  user-select:none;
+}
+
+/* двете „страни“ се еден врз друг, само една е видлива */
+.face{
+  position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+  border-radius:12px;
+}
+.back{
+  background:#2563eb; color:#fff; font-size:40px;
+}
+.front{
+  display:none; /* скриена додека не се „отвори“ картата */
+  background:var(--card);
+}
+
+/* кога е „отворена“ */
+.card.is-flipped .back{ display:none; }
+.card.is-flipped .front{ display:flex; }
+
+/* содржина на предната страна */
+.front img{
+  max-width: min(90%, var(--img-max));
+  max-height: min(90%, var(--img-max));
+  width:auto; height:auto; display:block; object-fit:contain;
+}
+.front span{ font-size:48px; }
+
+/* визуелен фидбек */
+.card.is-matched .front{ outline:3px solid var(--ok); }
+.card.is-wrong  .front{ outline:3px solid var(--err); }
+
+/* дијалог */
+dialog{ border:none; border-radius:12px; padding:18px; background:#0b1224; color:var(--text); }
+dialog::backdrop{ background:rgba(0,0,0,.5); }

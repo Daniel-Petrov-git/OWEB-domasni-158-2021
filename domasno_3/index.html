@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="mk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Меморија – најди го парот (едноставна верзија)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <header class="topbar">
+      <h1>Меморија – најди го парот</h1>
+      <div class="status">
+        <span id="attempts">Обиди: 0</span>
+        <button id="resetBtn" class="btn" type="button">Нова игра</button>
+      </div>
+    </header>
+
+    <section id="board" class="board" aria-label="Играчка табла од 12 карти"></section>
+
+    <dialog id="winDialog">
+      <h2>Браво! 🎉</h2>
+      <p id="winText">Ги најде сите парови за X обиди.</p>
+      <form method="dialog">
+        <button class="btn" type="submit">Играј повторно</button>
+      </form>
+    </dialog>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
