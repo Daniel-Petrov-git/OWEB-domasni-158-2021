@@ -1,0 +1,31 @@
+<div class="container-fluid bg-dark">
+<div>
+    <img class="logo mx-auto d-block" 
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Moto_Gp_logo.svg/2560px-Moto_Gp_logo.svg.png" 
+        alt="Moto_Gp_logo">
+</div>
+<div class="container mt-4">
+    <table class="table table-dark table-hover table-bordered align-middle text-center shadow">
+        <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Photo</th>
+            <th>Name</th>
+            <th>Team</th>
+            <th>Category</th>
+            <th>Points</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let s of soferi">
+            <td>{{ s.id }}</td>
+            <td><img [src]="s.iconUrl" width="150"></td>
+            <td>{{ s.name }}</td>
+            <td>{{ s.team }}</td>
+            <td>{{ s.category }}</td>
+            <td>{{ s.points }}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</div>
