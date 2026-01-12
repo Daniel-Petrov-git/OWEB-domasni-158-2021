@@ -1,0 +1,30 @@
+<h2>Discover Paris Through Photos</h2>
+
+<div class="gallery-grid">
+  @for (item of galleryItems; track item.title) {
+    <div class="gallery-item">
+      <img [src]="item.image" [alt]="item.title" (click)="openImage(item.image)">
+      <div class="gallery-item-content">
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.description }}</p>
+        <div class="actions">
+          <button class="like-btn" (click)="like(item)">
+            👍 {{ item.likes }}
+          </button>
+          <button class="dislike-btn" (click)="dislike(item)">
+            👎 {{ item.dislikes }}
+          </button>
+        </div>
+      </div>
+    </div>
+  }
+</div>
+
+<!-- Image Modal -->
+@if (selectedImage) {
+  <div class="modal" (click)="closeImage()">
+    <div class="modal-content">
+      <img [src]="selectedImage" alt="Enlarged view">
+    </div>
+  </div>
+}
