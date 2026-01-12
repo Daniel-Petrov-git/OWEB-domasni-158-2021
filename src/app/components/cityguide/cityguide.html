@@ -1,0 +1,45 @@
+<div class="guide-section">
+  <h2>Welcome to Paris!</h2>
+  <p>Paris is the capital of France and one of Europe's most magnificent cities. 
+    With over 2,000 years of history, Paris has been a center of art, culture, and intellectual life for centuries. 
+    From world-class museums and Gothic cathedrals to charming cafés and romantic Seine riverside walks, 
+    Paris truly lives up to its reputation as one of the world's most beautiful and culturally rich cities. 
+    Whether you're a first-time visitor or returning for the tenth time, Paris always has something new to discover.</p>
+</div>
+
+<div class="guide-section">
+  <h3>Top Attractions</h3>
+  <ul>
+    @for (att of attractions; track att.name) {
+      <li><strong>{{ att.name }}:</strong> {{ att.description }}</li>
+    }
+  </ul>
+</div>
+
+<div class="guide-section">
+  <h3>Dining Recommendations</h3>
+  <ul>
+    @for (res of restaurants; track res.name) {
+      <li><strong>{{ res.name }}:</strong> {{ res.description }}</li>
+    }
+  </ul>
+</div>
+
+<div class="guide-section">
+  <h3>🚇 Getting Around Paris</h3>
+  <p>Paris has one of Europe's most efficient metro systems with 16 lines and 302 stations - 
+    you're never more than 500 meters from a station. The metro operates from 5:30 AM to 1:15 AM 
+    (2:15 AM on Friday/Saturday nights). You can also use the RER trains for longer distances, an extensive bus network, 
+    and the Vélib' bike-sharing system with over 1,400 stations. Taxis are available but can be expensive; consider 
+    using Uber or Bolt for better rates. Most central attractions are walkable, and Paris is one of the world's most 
+    pedestrian-friendly cities.</p>
+</div>
+
+<div class="guide-section">
+  <h3>Insider Tips</h3>
+  <ul>
+    @for (tip of tips; track tip) {
+      <li>{{ tip }}</li>
+    }
+  </ul>
+</div>
